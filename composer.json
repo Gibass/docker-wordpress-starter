@@ -1,0 +1,61 @@
+{
+    "name": "gibass/wordpress-compose",
+    "description": "A Wordpress using composer",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gino Rakotozafy"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress/wordpress",
+                "type": "wordpress-core",
+                "version": "6.5.2",
+                "source": {
+                    "url": "https://github.com/WordPress/WordPress.git",
+                    "type": "git",
+                    "reference": "6.5.2"
+                }
+            }
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "composer/installers": "^2.2",
+        "oomphinc/composer-installers-extender": "^2.0",
+        "wordpress/wordpress": "^6.5",
+        "wpackagist-theme/twentytwenty": "2.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "oomphinc/composer-installers-extender": true
+        }
+    },
+    "extra": {
+        "installer-types": ["wordpress-core"],
+        "installer-paths": {
+            "public/wp/": [
+                "type:wordpress-core"
+            ],
+            "public/wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "public/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "public/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    }
+}
