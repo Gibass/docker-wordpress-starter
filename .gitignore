@@ -11,7 +11,7 @@ public/wp/
 public/wp-content/themes/twentytwenty/
 
 # Upload File
-
+public/wp-content/uploads/
 
 # JetBrains IDE
 .idea/
