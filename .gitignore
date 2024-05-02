@@ -3,6 +3,16 @@
 docker/nginx/conf/certs/*.pem
 docker/nginx/conf/conf.d/*.conf
 
+# Dependances
+vendor/
+
+# Wordpress core
+public/wp/
+public/wp-content/themes/twentytwenty/
+
+# Upload File
+
+
 # JetBrains IDE
 .idea/
 

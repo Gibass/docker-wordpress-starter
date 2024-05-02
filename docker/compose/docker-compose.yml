@@ -2,16 +2,15 @@ version: '3'
 
 services:
   core:
-    image: gibass/php-nginx:8.2
+    build: ${WORKSPACE}/docker/
     container_name: ${PROJECT_NAME}-core
     ports:
       - "80:80"
       - "443:443"
     restart: always
     volumes:
-      - ${WORKSPACE}/docker/nginx/conf/conf.d:/etc/nginx/http.d:ro
-      - ${WORKSPACE}/docker/nginx/conf/certs:/etc/nginx/certs:ro
       - ${WORKSPACE}:/var/www/html
+      - ${WORKSPACE}/docker/nginx/conf/conf.d:/etc/nginx/http.d
     environment:
       SCRIPTS_DIR: ${SCRIPTS_DIR:-}
       ENV: ${ENV:-}

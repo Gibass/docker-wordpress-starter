@@ -54,3 +54,6 @@ php-install-dependencies: ## Composer install
 
 ssh-core: ## Ssh into php container (www-data)
 	$(CORE_CLI) sh
+
+ssh-core-root: ## Ssh into php container (www-data)
+	$(CORE_CLI_ROOT) sh
